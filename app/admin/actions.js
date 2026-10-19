@@ -187,7 +187,13 @@ Nama produk: ${nama.trim()}
 ${kategori ? `Kategori: ${kategori.trim()}` : ""}
 Tulis dalam bahasa Indonesia yang ramah. Jangan gunakan format tebal/markdown (*), buat sebagai teks paragraf polos saja.`;
 
-  const models = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-2.5-flash"];
+  const models = [
+    "gemini-3.8-flash",
+    "gemini-3.8-flash-lite",
+    "gemini-2.5-flash",
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+  ];
   let lastError = null;
 
   for (const model of models) {

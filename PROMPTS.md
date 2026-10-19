@@ -155,7 +155,7 @@ Berhasil. Membuat konfigurasi Web App Manifest di `app/manifest.js` yang memanfa
 US-14 Deskripsi produk dibuat AI.
 
 **Hasil:**
-Berhasil. Menambahkan Server Action `buatDeskripsiAI` di `app/admin/actions.js` dengan verifikasi sesi admin login dan integrasi Google Gemini API via REST fetch. Menambahkan tombol "✨ Buat dengan AI" di `components/FormProduk.jsx` yang otomatis mengisi kolom deskripsi produk berdasarkan nama dan kategori produk. Menambahkan panduan variabel `GEMINI_API_KEY` di `.env.example`.
+Berhasil. Menambahkan keterangan di Footer (`components/Footer.jsx`) bahwa website dan katalog dibuat dengan bantuan AI, serta fitur pembuatan deskripsi produk otomatis dengan Gemini AI di form admin produk (`components/FormProduk.jsx` dan `app/admin/actions.js`). Memperbaiki hydration warning akibat ekstensi browser di `app/layout.jsx` dengan `suppressHydrationWarning`.
 
 **Perbaikan:**
 
