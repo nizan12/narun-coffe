@@ -79,4 +79,85 @@ Berhasil. File `proxy.js` dibuat di root proyek dengan proteksi rute `/admin/*` 
 
 ## Debugging dan fitur bonus
 
+### US-07 List produk admin dari database (bonus)
+
+**Prompt:**
+Lanjut US-07 List produk di halaman admin dari database.
+
+**Hasil:**
+Berhasil. Halaman `app/admin/page.jsx` diubah menjadi async Server Component yang mengambil data dari tabel `produk` di Supabase menggunakan `buatClientServer()`. Import `data-contoh` dihapus. Menampilkan error jika gagal, "Belum ada produk" jika kosong.
+
+**Perbaikan:**
+
+### US-08 Tambah produk (bonus)
+
+**Prompt:**
+US-08 Tambah produk (harus terkunci login).
+
+**Hasil:**
+Berhasil. Server Action `tambahProduk` ditambahkan di `app/admin/actions.js` dengan pengecekan login (`getUser()`), validasi nama dan harga, lalu insert ke tabel `produk`. Komponen `FormProduk` diubah menjadi client component yang menerima prop `action` dan menampilkan error. Halaman `app/admin/produk/baru/page.jsx` terhubung ke action dan `CatatanBelumAktif` dihapus.
+
+**Perbaikan:**
+
+### US-09 Ubah produk (bonus)
+
+**Prompt:**
+US-09 Ubah produk (harus terkunci login).
+
+**Hasil:**
+Berhasil. Server Action `ubahProduk` ditambahkan di `app/admin/actions.js` dengan pengecekan login, validasi, dan update berdasarkan ID. Hidden input `id` ditambahkan di `FormProduk`. Halaman `app/admin/produk/[id]/ubah/page.jsx` mengambil data produk dari Supabase dan meneruskan action `ubahProduk`. `CatatanBelumAktif` dihapus.
+
+**Perbaikan:**
+
+### US-10 Hapus produk (bonus)
+
+**Prompt:**
+US-10 Hapus produk (harus terkunci login).
+
+**Hasil:**
+Berhasil. Server Action `hapusProduk` ditambahkan di `app/admin/actions.js` dengan pengecekan login (`getUser()`). Komponen `TabelProduk` diubah menjadi client component dengan tombol "Hapus" yang menampilkan dialog konfirmasi sebelum menghapus. Produk dihapus berdasarkan ID lalu redirect ke `/admin`.
+
+**Perbaikan:**
+
+### US-11 Filter kategori atau pencarian (bonus)
+
+**Prompt:**
+US-11 Filter kategori atau pencarian.
+
+**Hasil:**
+Berhasil. Komponen `FilterProduk` dibuat sebagai client component dengan tombol kategori (pills) dan input pencarian. Halaman katalog (`app/page.jsx`) menerima `searchParams` dan memfilter produk di server. URL bisa dibagikan (misal `/?kategori=Minuman&cari=kopi`). Jika filter tidak cocok, tampil "Tidak ada produk yang cocok".
+
+**Perbaikan:**
+
+### US-12 Pilih jumlah atau varian (bonus)
+
+**Prompt:**
+US-12 Pilih jumlah atau varian.
+
+**Hasil:**
+Berhasil. `TombolWhatsApp` diubah menjadi client component dengan pemilih jumlah (tombol − / +). Total harga dihitung otomatis. Jumlah dan total ikut tertulis di pesan WhatsApp. Tampilan tombol tetap sama.
+
+**Perbaikan:**
+
+### US-13 PWA (Bisa di-install di HP) (bonus)
+
+**Prompt:**
+US-13 Bisa di-install di HP (PWA).
+
+**Hasil:**
+Berhasil. Membuat konfigurasi Web App Manifest di `app/manifest.js` yang memanfaatkan ikon `public/icons/icon-192.png` dan `public/icons/icon-512.png`. Menambahkan metadata `appleWebApp`, `viewport` (`themeColor`), dan link manifest di `app/layout.jsx`. Menambahkan service worker di `public/sw.js` dengan strategi caching dan registrasi otomatis di client. Pengunjung dapat memasang katalog di beranda layar HP layaknya aplikasi.
+
+**Perbaikan:**
+
+### US-14 Deskripsi produk dibuat AI (bonus)
+
+**Prompt:**
+US-14 Deskripsi produk dibuat AI.
+
+**Hasil:**
+Berhasil. Menambahkan Server Action `buatDeskripsiAI` di `app/admin/actions.js` dengan verifikasi sesi admin login dan integrasi Google Gemini API via REST fetch. Menambahkan tombol "✨ Buat dengan AI" di `components/FormProduk.jsx` yang otomatis mengisi kolom deskripsi produk berdasarkan nama dan kategori produk. Menambahkan panduan variabel `GEMINI_API_KEY` di `.env.example`.
+
+**Perbaikan:**
+
 Tambahkan bagian baru untuk setiap error yang kamu perbaiki atau fitur bonus yang kamu kerjakan.
+
